@@ -102,6 +102,34 @@
                 '</form>';
         }
     }]
+
+
+
+
+$.ajax({
+    url: 'get_trabajadores.php',
+    type: 'GET',
+    dataType: 'json',
+    success: function(data) {
+        if (data.length > 0) {
+            var table = $('#empleados-registrados').DataTable({
+                data: data,
+                columns: [
+                ],
+                order: [
+                    [1, 'asc']
+                ],
+                responsive: true
+            });
+        } else {
+            console.log('No hay empleados registrados');
+        }
+    },
+    error: function() {
+        console.log('Error en la solicitud AJAX');
+    }
+});
+
 </script>
 
 <input type="hidden" name="elim_id" id="elim_id" value="' + data.id + '">
