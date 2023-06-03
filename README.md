@@ -40,3 +40,5 @@ ALTER TABLE empleados MODIFY departamento_id INT unsigned NULL;
 ALTER TABLE empleados add foreign key (departamento_id) references departamentos(id);
 
 ALTER TABLE empleados ADD status boolean default true;
+
+#los departamentos tienen que agregarse manualmente
